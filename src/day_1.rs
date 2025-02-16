@@ -28,6 +28,6 @@ pub fn day_1() {
         result_1 += (x-y).abs();
         result_2 += x * counter.get(x).unwrap_or(&0);
     }
-    println!("Result 1: {}", result_1);
-    println!("Result 2: {}", result_2);
+    println!("Result 1: {result_1}");
+    println!("Result 2: {result_2}");
 }

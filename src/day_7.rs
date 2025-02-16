@@ -194,7 +194,6 @@ fn validate_line_inverse_method(calibration: i128, list: &[i128]) -> bool {
 
 pub fn day_7(){
     let file: &str= include_str!("inputs/day_7.txt");
-    // let file: &str= include_str!("inputs/day_7_test.txt");
     let mut result_1: i128 = 0;
     let mut result_2: i128 = 0;
 
@@ -208,13 +207,11 @@ pub fn day_7(){
                                         .rev()
                                         .collect();
             if validate_line_inverse_method(calibration, &num_list) {
-                println!("1 >>> {}", calibration);
                 result_1 += calibration;
                 result_2 += calibration;
             } else {
                 let num_list: Vec<i128> = num_list.clone().into_iter().rev().collect();
                 if validate_line_new_method(calibration, &num_list) {
-                println!("2 >>> {}", calibration);
                     result_2 += calibration;
                 }
             }

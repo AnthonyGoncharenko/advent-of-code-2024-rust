@@ -1,4 +1,4 @@
-use std::env;
+use std::{env, fs};
 
 mod day_1;
 mod day_2;
@@ -9,8 +9,11 @@ mod day_6;
 mod day_7;
 
 
-
 fn main() {
+    if !fs::exists("src/inputs").unwrap() {
+        let _ = fs::create_dir("inputs");
+    }
+
     let args: Vec<String> = env::args().skip(1).collect();
 
     let mut fns: [Option<fn()>; 25] = [None; 25];
@@ -26,7 +29,7 @@ fn main() {
             if let Ok(num) = arg.parse::<i32>() {
                 if num >= 1 && num <= 25 {
                     if let Some(aoc_fn) = fns[num as usize - 1] {
-                        println!("Day {}", num);
+                        println!("Day {num}");
                         aoc_fn();
                         println!("------------------");
                     }

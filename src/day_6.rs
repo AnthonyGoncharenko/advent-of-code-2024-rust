@@ -111,16 +111,15 @@ fn part_1(mut board: Vec<Vec<char>>, start_pos: PathLoc) {
 
             visited_locations.insert(board_pos);
         } else {
-            // print_board(&board);
             let result_1 = visited_locations.len();
-            println!("Result 1: {}", result_1);
+            println!("Result 1: {result_1}");
             break;
         }
     }
 }
 
 fn part_2(board: Vec<Vec<char>>, start_pos: PathLoc) {
-    let mut result = 0;
+    let mut result_2 = 0;
 
     for row_idx in 0..board.len() {
         for col_idx in 0..board.get(0).unwrap().len() {
@@ -129,7 +128,6 @@ fn part_2(board: Vec<Vec<char>>, start_pos: PathLoc) {
                     continue;
                 }
             }
-            println!("({}, {})", row_idx, col_idx);
             let mut visited_locations: HashSet<BoardMeta> = HashSet::new();
             let mut scratch_board = board.clone();
             let mut board_meta = BoardMeta {
@@ -157,7 +155,7 @@ fn part_2(board: Vec<Vec<char>>, start_pos: PathLoc) {
                     }
 
                     if visited_locations.contains(&board_meta) {
-                        result += 1;
+                        result_2 += 1;
                         break;
                     }
         
@@ -169,13 +167,12 @@ fn part_2(board: Vec<Vec<char>>, start_pos: PathLoc) {
         }
     }
 
-    println!("Result 2: {}", result);
+    println!("Result 2: {result_2}");
 
 }
 
 pub fn day_6(){
     let file: &str = include_str!("inputs/day_6.txt");
-    // let file: Box<str>= include_str!("inputs/day_6_test.txt").into();
     let mut board = Vec::new();
     let mut start_pos: PathLoc = PathLoc::OffGrid;
     for (line_idx, line) in file.lines().enumerate() {
@@ -188,7 +185,10 @@ pub fn day_6(){
         }
         board.push(row);
     }
-    print_board(&board);
+    let is_debug = false;
+    if is_debug {
+        print_board(&board);
+    }
     part_1(board.clone(), start_pos);
     part_2(board.clone(), start_pos);
 }

@@ -65,6 +65,6 @@ pub fn day_5() {
             }
         }
     }
-    println!("Result 1: {}", result_1);
-    println!("Result 2: {}", result_2);
+    println!("Result 1: {result_1}");
+    println!("Result 2: {result_2}");
 }

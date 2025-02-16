@@ -27,6 +27,6 @@ pub fn day_3() {
         }
     }
 
-    println!("Part 1: {part_1}");
-    println!("Part 2: {part_2}");
+    println!("Result 1: {part_1}");
+    println!("Result 2: {part_2}");
 }

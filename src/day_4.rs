@@ -140,7 +140,7 @@ pub fn day_4() {
             }
         }
     }
-    println!("Result 1: {}", result_1);
+    println!("Result 1: {result_1}");
     
     let mut result_2: i32 = 0;
     let lines_vec: Vec<&str> = file.lines().collect::<Vec<_>>();
@@ -168,5 +168,5 @@ pub fn day_4() {
             }
         }
     }
-    println!("Result 2: {}", result_2);
+    println!("Result 2: {result_2}");
 }
